@@ -17,17 +17,8 @@ app.get('/', function(req, res){
 });
 
 app.get('/restaurantes', function(req, res){
-    res.send(
-        `
-        <html>
-            <head>
-                <meta charset="utf-8">
-            </head>
-            <body>
-                <h1> Restaurantes </h1>
-            </body> 
-        </html>
-        `
+    res.marko(
+        require('../views/restaurantes/lista/lista.marko')
     );
 });
 
