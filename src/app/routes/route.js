@@ -1,3 +1,5 @@
+const ProdutoDao = require('../infra/produto-dao');
+const db = require('../../config/database');
 module.exports = (app) => {
 
 
@@ -9,18 +11,24 @@ app.get('/', function(req, res){
                 <meta charset="utf-8">
             </head>
             <body>
-                <h1> Ifome </h1>
+                <h1> Quare </h1>
             </body> 
         </html>
         `
     );
 });
 
-app.get('/restaurantes', function(req, res){
-    res.marko(
-        require('../views/restaurantes/lista/lista.marko')
-    );
-});
+app.get('/produtos', function(req, res){
 
-}
-
+    const produtoDao = new ProdutoDao(db);
+    produtoDao.lista()
+                .then(produto => res.marko(
+                    require('../views/produtos/lista/lista.marko'),
+                    {
+                        produtos: resultados
+                    }
+                ))
+                .catch(erro => console.log(erro));
+   
+    
+       })};
