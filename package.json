@@ -10,7 +10,7 @@
   "author": "Andressa Santana",
   "license": "ISC",
   "dependencies": {
-    "express": "4.16.3",
+    "express": "4.17.3",
     "marko": "4.13.4-1",
     "sqlite3": "^4.1.1"
   },
